@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- css web -->
+  <link rel="stylesheet" href="./assets/theme.css">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- FUENTES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Audiowide&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <!-- SWIPER.JS CARRUSEL -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <title>Web Store</title>
+</head>
+
+<body>
+  <!--//* HOME Y HEADER  -->
+  <section class="fondo-imagen">
+    <nav class="flex justify-between items-center py-2 px-4 flex-wrap">
+      <!-- caja 1 logo y servicios -->
+      <div class="flex gap-7">
+        <h1 class="font-black text-3xl flex gap-0">
+          <span class="">Web</span>
+          <span class="txt-white decoration-(--primary-color) underline decoration-4 underline-offset-6">Store</span>
+        </h1>
+        <div class="flex gap-5 items-center ">
+          <a class="font-light text-base" href="">Ofertas</a>
+          <a class="font-light text-base" href="">Promociones</a>
+          <a class="font-light text-base" href="">Categorías</a>
+        </div>
+      </div>
+      <!-- CAJA 2 BUSCADOR y botones -->
+      <div class="flex gap-8">
+        <div class="flex gap-3">
+
+          <!-- Input + lupa -->
+          <div class="flex">
+            <input type="text" class="custom-search-input" placeholder="Buscar">
+            <button type="button" class="btn-general" style="border-radius: 0px 5px 5px 0px;">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+
+          <!-- Contenedor RELATIVO para el botón y el modal -->
+          <div class="relative">
+            <!-- Botón del carrito -->
+            <button type="button" class="btn-general" onclick="toggleModal()">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+
+            <!-- //*Modal debajo del botón -->
+            <div id="modal"
+              class="absolute  right-0 mt-2 w-80 bg-white border border-gray-300 rounded shadow-lg p-4 hidden z-10 h-100"
+              style="overflow-y: scroll ;">
+              <h2 class="text-lg font-bold mb-2">Productos en el carrito</h2>
+
+              <!-- Productos de l carrito -->
+              <div id="modal-content-products" class="flex flex-col gap-5 mb-10"></div>
+
+              <!-- Botones de cerrar y comprar  ELEMENTO PARA BAJAR-->
+              <div class="flex justify-evenly gap-3 sticky bottom-0 w-full " style="background-color: var(--white-color);">
+                <button onclick="toggleModal()"
+                  style="background-color: var(--secondary-color); color:var(--white-color);"
+                  class="btn-general w-30">Cerrar</button>
+                <button class="btn-general w-full">Comprar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contador -->
+          <p id="count_cart">0</p>
+
+        </div>
+
+        <!-- Botones de login/registro -->
+        <div class="flex gap-3">
+          <button type="button" class="btn-general">
+            <i class="fa-solid fa-right-to-bracket"></i>
+          </button>
+          <button type="button" class="btn-general">
+            <i class="fa-solid fa-user-plus"></i>
+          </button>
+        </div>
+      </div>
+
+    </nav>
+
+    <!-- HOME  -->
+    <section class="flex justify-evenly items-center h-screen px-15">
+      <div class="flex flex-col gap-5 ">
+        <div>
+          <h1 class="font-audiowide text-8xl">Nike Summer</h1>
+          <p class="font-audiowide text-5xl txt-white">Collections 2025</p>
+        </div>
+        <div class="flex flex-col w-150">
+          <p class="txt-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nulla ullam perspiciatis
+            maxime ea sint at commodi doloribus, ducimus, totam distinctio minima obcaecati excepturi repellat
+            repellendus omnis! Veniam, nobis assumenda?</p>
+          <div class="flex gap-3 mt-20">
+            <button class="btn-general w-50">
+              <i class="fa-solid fa-credit-card text-xl"></i>
+              <span class="text-zinc-800 font-semibold text-xl ml-3">PayPal</span>
+            </button>
+            <button class="btn-general w-50">
+              <i class="fa-solid fa-percent text-xl"></i>
+              <span class="text-zinc-800 font-semibold text-xl ml-3">Ofertas</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="circle-container ">
+        <img src="./assets/img/zapato.png" alt="nike">
+      </div>
+    </section>
+
+  </section>
+  <!-- Productos xdxd -->
+  <section class="bg-black px-10 py-10">
+    <h1 class="font-audiowide text-3xl txt-white mb-10">Productos
+      <span class="primary-color font-audiowide">Populares</span>
+    </h1>
+
+    <!-- RENDEREIZADO DE PRODUCTOS -->
+    <div id="productos" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"></div>
+
+    <p class="text-center mt-10 cursor-pointer"> ver mas </p>
+  </section>
+
+  <!-- Ofertas  -->
+  <section>
+      
+  </section>
+  <script src="https://kit.fontawesome.com/da29abc60a.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
