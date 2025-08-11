@@ -70,7 +70,8 @@
               <div id="modal-content-products" class="flex flex-col gap-5 mb-10"></div>
 
               <!-- Botones de cerrar y comprar  ELEMENTO PARA BAJAR-->
-              <div class="flex justify-evenly gap-3 sticky bottom-0 w-full " style="background-color: var(--white-color);">
+              <div class="flex justify-evenly gap-3 sticky bottom-0 w-full "
+                style="background-color: var(--white-color);">
                 <button onclick="toggleModal()"
                   style="background-color: var(--secondary-color); color:var(--white-color);"
                   class="btn-general w-30">Cerrar</button>
@@ -136,11 +137,37 @@
     <div id="productos" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"></div>
 
     <p class="text-center mt-10 cursor-pointer"> ver mas </p>
+
   </section>
 
   <!-- Ofertas  -->
-  <section>
-      
+  <section class="bg-black  px-10 py-10">
+    <h1 class="font-audiowide text-3xl txt-white mb-10">Ofertas
+      <span class="primary-color font-audiowide">Populares</span>
+    </h1>
+
+    <!-- PRIMERA OFERTA -->
+    <div class="flex justify-evenly items-center bg-secondary-color p-10 rounded-2xl">
+      <div class="flex flex-col gap-3">
+        <p class=" text-6xl txt-white font-black w-100 uppercase">Nike sports Collections</p>
+        <p class="text-4xl font-black uppercase">70% Descuento</p>
+        <button type="button" class="btn-general w-40">Comprar</button>
+      </div>
+      <div>
+        <img class="w-full" style=" filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.67));"
+          src="./assets/img/oferta.png" alt="">
+      </div>
+    </div>
+
+    <!-- OFERTAS DE ABAJO -->
+    <div class="flex justify-between gap-3 ">
+      <div class="bg-primary w-full rounded-2xl">
+        <p class="txt-black font-audiowide font-black uppercase text-3xl">100M de ventas </p>
+      </div>
+      <div class="bg-primary w-full rounded-2xl">
+        <p>b</p>
+      </div>
+    </div>
   </section>
   <script src="https://kit.fontawesome.com/da29abc60a.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

@@ -115,6 +115,12 @@ function loadingProducts() {
 
 }
 
+/**
+ * Cambia el color del producto
+ *
+ * @param {*} index indice del producto
+ * @param {*} color_var color de la variable css
+ */
 function changeColorProduct(index, color_var) {
   let product = products[index];
   let card = document.getElementById(`card-${product.id}`);
@@ -154,7 +160,6 @@ function addToCart(index_product) {
   document.getElementById(`amount-${product.id}`).textContent = `cantidad ${product.amount}`;
 
   if (!shopping_card.some(item => item.id == product.id)) shopping_card.push(product);
-
   document.getElementById('count_cart').textContent = shopping_card.length;
 
 }
@@ -205,8 +210,6 @@ function toggleModal() {
 
   loadingProductsShoppingCard();
 }
-
-
 
 
 loadingProducts();

@@ -3,6 +3,7 @@
     --primary-color-hover: #fff49e;
     --secondary-color: rgb(26, 26, 26);
     --white-color: #FFFFFF;
+    --secondary-color-hover: rgb(43, 43, 43);
 
     --shoes-blue: #8288a7;
     --shoes-green: #82a793;
@@ -17,6 +18,10 @@
 
 .bg-black {
     background-color: var(--secondary-color);
+}
+
+.bg-secondary-color{
+    background-color: var(--secondary-color-hover);
 }
 
 .bg-primary {
@@ -133,7 +138,7 @@ a {
     position: relative;
     width: 100%;
     padding: 30px;
-    background-color: #e7e7e7;
+    background-color: #fafafa;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.819);
     display: flex;
