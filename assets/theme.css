@@ -20,7 +20,7 @@
     background-color: var(--secondary-color);
 }
 
-.bg-secondary-color{
+.bg-secondary-color {
     background-color: var(--secondary-color-hover);
 }
 
@@ -137,7 +137,7 @@ a {
 .card-product {
     position: relative;
     width: 100%;
-    padding: 30px;
+    padding: 18px;
     background-color: #fafafa;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.819);
