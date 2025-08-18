@@ -83,13 +83,13 @@ function loadingProducts() {
 
       <img src="${product.image}">
        
-      <div class="flex flex-col gap-3">
+      <div class="flex flex-col gap-3 mt-8 md:mt-0">
         <div class="flex justify-end gap-2 ">
           <button onclick="changeColorProduct(${index},'--shoes-blue')" class="circle" style=" background-color: var(--shoes-blue);"></button>
           <button onclick="changeColorProduct(${index},'--shoes-green')" class="circle" style=" background-color: var(--shoes-green);"></button>
           <button onclick="changeColorProduct(${index},'--shoes-black')" class="circle" style=" background-color: var(--shoes-black);"></button>
         </div>
-        <h1 class="font-audiowide text-3xl txt-black">${product.name}</h1>
+        <h1 class="font-audiowide text-base sm:text-3xl txt-black">${product.name}</h1>
 
         <div class="flex justify-between align-center">
           <p id=amount-${product.id} style="color: rgb(105, 105, 105);">cantidad ${product.amount}</p>
@@ -211,6 +211,35 @@ function toggleModal() {
   loadingProductsShoppingCard();
 }
 
+function toggleModalMenu() {
+  const modal = document.getElementById('modal2');
+  modal.classList.toggle('hidden');
 
+}
 loadingProducts();
 
+function toggleMenuOnResize() {
+
+
+  if (window.innerWidth <= 768) {
+    console.log('mobile');
+    document.getElementById('botones-login').classList.add('hidden');
+    document.getElementById('servicios-menu').classList.add('hidden');
+    document.getElementById('boton-menu').classList.remove('hidden');
+    document.getElementById('circle-shoes-home').style.display = 'none';
+
+
+  } else if (window.innerWidth <= 1050) {
+    console.log('tablet');
+    document.getElementById('circle-shoes-home').style.display = 'none';
+  } else {
+    console.log('pc');
+    document.getElementById('botones-login').classList.remove('hidden');
+    document.getElementById('servicios-menu').classList.remove('hidden');
+    document.getElementById('boton-menu').classList.add('hidden');
+    document.getElementById('circle-shoes-home').style.display = '';
+  }
+}
+
+window.addEventListener("resize", toggleMenuOnResize);
+window.addEventListener("load", toggleMenuOnResize);
