@@ -5,7 +5,7 @@ const products = [
     price: 20.00,
     stock: 20,
     amount: 0,
-    image: "./assets/img/shoes-black.png"
+    image: "./assets/img/zapato.png"
   },
   {
     id: 2,
@@ -222,7 +222,7 @@ function toggleMenuOnResize() {
 
 
   if (window.innerWidth <= 768) {
-    console.log('mobile');
+
     document.getElementById('botones-login').classList.add('hidden');
     document.getElementById('servicios-menu').classList.add('hidden');
     document.getElementById('boton-menu').classList.remove('hidden');
@@ -230,10 +230,10 @@ function toggleMenuOnResize() {
 
 
   } else if (window.innerWidth <= 1050) {
-    console.log('tablet');
+
     document.getElementById('circle-shoes-home').style.display = 'none';
   } else {
-    console.log('pc');
+
     document.getElementById('botones-login').classList.remove('hidden');
     document.getElementById('servicios-menu').classList.remove('hidden');
     document.getElementById('boton-menu').classList.add('hidden');
@@ -241,5 +241,48 @@ function toggleMenuOnResize() {
   }
 }
 
+/**
+ *devuelve una promesa que se resuelve después de ms milisegundos.
+ *
+ * @param {*} ms
+ * @return {*} 
+ */
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+/**
+ *
+ *permite usar await para que cada iteración espere la promesa. 
+ *Cada imagen se muestra durante 3 segundos antes de pasar a la siguiente.
+ *
+ */
+
+async function animationShoesHome() {
+  const shoes = [
+    "./assets/img/zapato.png",
+    "./assets/img/zapato-azul.png",
+    "./assets/img/zapato-verde.png",
+    "./assets/img/zapato-gris.png"
+  ];
+
+  const shoes_home = document.getElementById('shoes-home');
+
+  while (true) {             // bucle infinito
+    for (const shoe of shoes) {
+      shoes_home.src = shoe;
+
+      // reiniciar animación
+      shoes_home.style.animation = 'none';
+      shoes_home.offsetHeight; // fuerza reflow
+      shoes_home.style.animation = 'rotateMove 2s ease-in-out forwards';
+      await sleep(5000);
+    }
+  }
+}
+
 window.addEventListener("resize", toggleMenuOnResize);
-window.addEventListener("load", toggleMenuOnResize);
+window.addEventListener("load", () => {
+  animationShoesHome()
+  toggleMenuOnResize()
+});

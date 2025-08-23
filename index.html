@@ -26,7 +26,7 @@
 <body>
   <!--//* HOME Y HEADER  -->
   <section class="fondo-imagen">
-    <nav class="flex justify-evenly md:justify-between items-center py-2 px-4 ">
+    <nav class=" flex justify-evenly md:justify-between items-center py-2 px-4 ">
       <!-- caja 1 logo y servicios -->
       <div class="flex gap-7">
         <h1 class="font-black text-xl md:text-3xl  flex gap-0">
@@ -128,15 +128,16 @@
     <section class="flex justify-evenly items-center h-screen px-10 md:px-15">
       <div class="flex flex-col gap-5 ">
         <div>
-          <h1 class="font-audiowide text-5xl md:text-8xl">Nike Summer</h1>
-          <p class="font-audiowide text-3xl md:text-5xl txt-white">Collections 2025</p>
+          <h1 id="nike-sumer" class="font-audiowide text-5xl md:text-8xl">Nike Summer</h1>
+          <p id="collections" class="font-audiowide text-3xl md:text-5xl txt-white">Collections 2025</p>
         </div>
         <div class="flex flex-col md:w-150">
-          <p class="txt-white text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nulla
+          <p id="description" class="txt-white text-sm md:text-base">Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Nisi nulla
             ullam perspiciatis
             maxime ea sint at commodi doloribus, ducimus, totam distinctio minima obcaecati excepturi repellat
             repellendus omnis! Veniam, nobis assumenda?</p>
-          <div class="flex flex-col md:flex-row gap-3 mt-7 md:mt-20">
+          <div id="btns-title" class="flex flex-col md:flex-row gap-3 mt-7 md:mt-20">
             <button class="btn-general w-full md:w-50">
               <i class="fa-solid fa-credit-card text-xl"></i>
               <span class="text-zinc-800 font-semibold text-xl ml-3">PayPal</span>
@@ -149,7 +150,7 @@
         </div>
       </div>
       <div id="circle-shoes-home" class="circle-container ">
-        <img src="./assets/img/zapato.png" alt="nike">
+        <img id="shoes-home" class="shoes-home-animation" src="./assets/img/zapato.png" alt="nike">
       </div>
     </section>
 
@@ -288,9 +289,10 @@
       </div>
     </div>
   </footer>
-
+  <script src="https://unpkg.com/scrollreveal"></script>
   <script src="https://kit.fontawesome.com/da29abc60a.js" crossorigin="anonymous"></script>
   <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/scrollreveal.js"></script>
 </body>
 
 </html>
