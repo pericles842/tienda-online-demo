@@ -218,6 +218,13 @@ function toggleModalMenu() {
 }
 loadingProducts();
 
+/**
+ * Oculta o muestra los botones de login, servicios y bot n de men  dependiendo del ancho de la pantalla.
+ *
+ * Si el ancho de la pantalla es <= 768px, se ocultan los botones y se muestra el bot n de men .
+ * Si el ancho de la pantalla es > 768px y <= 1050px, se oculta el c rculo de zapatos.
+ * Si el ancho de la pantalla es > 1050px, se muestran los botones y se oculta el bot n de men .
+ */
 function toggleMenuOnResize() {
 
 
