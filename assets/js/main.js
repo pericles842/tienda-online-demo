@@ -283,7 +283,7 @@ async function animationShoesHome() {
       shoes_home.style.animation = 'none';
       shoes_home.offsetHeight; // fuerza reflow
       shoes_home.style.animation = 'rotateMove 2s ease-in-out forwards';
-      await sleep(5000);
+      await sleep(4000);
     }
   }
 }
