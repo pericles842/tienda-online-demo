@@ -83,7 +83,7 @@ function loadingProducts() {
 
       <img src="${product.image}">
        
-      <div class="flex flex-col gap-3 mt-8 md:mt-0">
+      <div class="flex flex-col  gap-1 md:gap-3 mt-8 md:mt-0">
         <div class="flex justify-end gap-2 ">
           <button onclick="changeColorProduct(${index},'--shoes-blue')" class="circle" style=" background-color: var(--shoes-blue);"></button>
           <button onclick="changeColorProduct(${index},'--shoes-green')" class="circle" style=" background-color: var(--shoes-green);"></button>

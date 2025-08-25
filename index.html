@@ -52,27 +52,28 @@
           </div>
 
           <!-- Contenedor RELATIVO para el botón y el modal -->
-          <div class="relative">
+          <div class="relative ">
             <!-- Botón del carrito -->
             <button type="button" class="btn-general" onclick="toggleModal()">
               <i class="fa-solid fa-cart-shopping"></i>
             </button>
 
             <!-- //*Modal debajo del botón -->
-            <div id="modal"
-              class="absolute  right-0 mt-2 w-80 bg-white border border-gray-300 rounded shadow-lg p-4 hidden z-10 h-100"
-              style="overflow-y: scroll ;">
+            <div id="modal" class="absolute top-1/2 left-1/2 w-80 transform -translate-x-1/2 translate-y-10
+         bg-white border border-gray-300 rounded shadow-lg p-4 hidden z-10 h-100 
+         overflow-y-auto flex flex-col ">
+
               <h2 class="text-lg font-bold mb-2">Productos en el carrito</h2>
 
-              <!-- Productos de l carrito -->
-              <div id="modal-content-products" class="flex flex-col gap-5 mb-10"></div>
+              <!-- Productos del carrito -->
+              <div id="modal-content-products" class="flex flex-col gap-5 mb-10 flex-1"></div>
 
-              <!-- Botones de cerrar y comprar  ELEMENTO PARA BAJAR-->
-              <div class="flex justify-evenly gap-3 sticky bottom-0 w-full "
-                style="background-color: var(--white-color);">
-                <button onclick="toggleModal()"
-                  style="background-color: var(--secondary-color); color:var(--white-color);"
-                  class="btn-general w-30">Cerrar</button>
+              <!-- Botones de cerrar y comprar -->
+              <div class="flex justify-evenly gap-3 sticky bottom-0 w-full bg-white py-2">
+                <button onclick="toggleModal()" class="btn-general w-30"
+                  style="background-color: var(--secondary-color); color:var(--white-color);">
+                  Cerrar
+                </button>
                 <button class="btn-general w-full">Comprar</button>
               </div>
             </div>
@@ -102,19 +103,20 @@
 
         <!-- MENU EN MOBIL -->
         <div id="modal2"
-          class="absolute right-100 mt-2 w-80 bg-white border border-gray-300 rounded shadow-lg p-4 hidden z-10"
+          class=" absolute  right-0  w-50 mt-2   bg-white border border-gray-300 rounded shadow-lg p-4 hidden z-10"
           style="overflow-y: scroll ;">
-          <div class="flex flex-col gap-3 items-center ">
-            <p class="txt-black">Ofertas</p>
-            <p class="txt-black">Promociones</p>
-            <p class="txt-black">Categorías</p>
-            <p class="txt-black">Iniciar sesión</p>
-            <p class="txt-black">Crear Cuenta</p>
+          <div class="flex flex-col gap-3 items-start  ">
+            <a class="txt-black text-xl">Ofertas</a>
+            <a class="txt-black text-xl">Promociones</a>
+            <a class="txt-black text-xl">Categorías</a>
+            <a class="txt-black text-xl">Iniciar sesión</a>
+            <a class="txt-black text-xl">Crear Cuenta</a>
           </div>
 
 
           <!-- Botones de cerrar y comprar  ELEMENTO PARA BAJAR-->
-          <div class="flex justify-evenly gap-3 sticky bottom-0 w-full " style="background-color: var(--white-color);">
+          <div class="flex mt-5 justify-evenly gap-3 sticky bottom-0 w-full "
+            style="background-color: var(--white-color);">
             <button onclick="toggleModalMenu()"
               style="background-color: var(--secondary-color); color:var(--white-color);"
               class="btn-general w-full">Cerrar</button>
@@ -180,7 +182,7 @@
     </h1>
 
     <!-- RENDEREIZADO DE PRODUCTOS -->
-    <div id="productos" class="grid grid-cols-2  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"></div>
+    <div id="productos" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"></div>
 
     <p class="text-center mt-10 cursor-pointer"> ver mas </p>
 
@@ -193,7 +195,8 @@
     </h1>
 
     <!-- PRIMERA OFERTA   -->
-    <div id="oferta-descuento" class="flex flex-col md:flex-row justify-evenly items-center bg-secondary-color p-8 sm:p-10 rounded-2xl">
+    <div id="oferta-descuento"
+      class="flex flex-col md:flex-row justify-evenly items-center bg-secondary-color p-8 sm:p-10 rounded-2xl">
       <div id="nike-sports" class="flex flex-col gap-3 z-2 ">
         <p class=" text-3xl md:text-6xl txt-white font-black md:w-100 uppercase">Nike sports Collections</p>
         <p class="text-2xl font-black uppercase">70% Descuento</p>

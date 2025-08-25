@@ -238,7 +238,7 @@ a {
 
     20% {
         transform: translateY(-70%) rotateZ(100deg);
-        
+
         filter: blur(5px);
     }
 
@@ -254,5 +254,15 @@ a {
         transform: translateY(10%) rotateZ(-10deg);
         filter: blur(0);
     }
+}
 
+@media (max-width: 768px) {
+    .card-product {
+        padding: 10px;
+    }
+
+    .circle {
+        width: 25px;
+        height: 25px;
+    }
 }
