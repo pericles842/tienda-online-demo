@@ -1,3 +1,4 @@
+const tasaBcv = 145;
 const products = [
   {
     id: 1,
@@ -137,6 +138,16 @@ function changeColorProduct(index, color_var) {
   //seleccionamos la etiqueta imagen de la carta
   card.querySelector('img').src = product.image;
 
+  //animamos la imagen
+  card.querySelector('img').animate([
+    { transform: 'scale(1.1)' },
+    { transform: 'scale(1)' }
+  ], {
+    duration: 200,
+    iterations: 1
+  });
+
+
   //extraemos el color de la variable css y la asignamos 
   let color = getComputedStyle(card).getPropertyValue(color_var);
   card.style.setProperty('--circle-card-product', color);
@@ -178,6 +189,7 @@ function loadingProductsShoppingCard() {
 
     var card = document.createElement("div");
     card.classList.add("flex", "justify-between", "items-center", "card-product-cards");
+    card.id = "row-card-" + product.id;
     card.innerHTML = `
          
                   <img class="w-20" src="${product.image}" alt="">
@@ -186,11 +198,11 @@ function loadingProductsShoppingCard() {
                     <p class="font-semibold text-base txt-black">${product.price}$</p>
 
                     <div class="flex  justify-between gap-3">
-                      <button type="button" class="btn-general">
+                      <button  onclick="decreaseProduct(${index})" type="button" class="btn-general">
                         <i class="fa-solid fa-minus"></i>
                       </button>
-                      <p class="font-semibold text-lg txt-black">${product.amount}</p>
-                      <button type="button" class="btn-general">
+                      <p id=amount-${product.id} class="font-semibold text-lg txt-black">${product.amount}</p>
+                      <button onclick="increaseProduct(${index})" type="button" class="btn-general">
                         <i class="fa-solid fa-plus"></i>
                       </button>
                     </div>
@@ -204,11 +216,60 @@ function loadingProductsShoppingCard() {
   });
 }
 
+
+/**
+ * Calcula el total del carrito
+ *
+ * Itera sobre el arreglo del carrito y multiplica el precio de cada producto
+ * por su cantidad, luego asigna el resultado a los elementos html que
+ * muestran el total en dolares y en bolivares.
+ */
+function calculateTotalShoppingCard() {
+  let total = 0
+  shopping_card.forEach(product => {
+    total += product.price * product.amount
+  })
+
+  document.getElementById('total-dollar').textContent = `${total} $`;
+  document.getElementById('total-bs').textContent = `${(total * tasaBcv).toFixed(2)} bs`;
+
+}
+
+
+/**
+ * Aumenta la cantidad de un producto en el carrito
+ * @param {number} index indice del producto en el carrito
+ * @return {void}
+ */
+function increaseProduct(index) {
+
+  shopping_card[index].amount += 1;
+  document.getElementById(`amount-${shopping_card[index].id}`).textContent = `${shopping_card[index].amount}`;
+  calculateTotalShoppingCard();
+}
+
+/**
+ * Disminuye la cantidad de un producto en el carrito
+ * @param {number} index indice del producto en el carrito
+ * @return {void}
+ */
+function decreaseProduct(index) {
+
+  if (shopping_card[index].amount === 0) return;
+  shopping_card[index].amount -= 1;
+  document.getElementById(`amount-${shopping_card[index].id}`).textContent = `${shopping_card[index].amount}`;
+  calculateTotalShoppingCard();
+}
+
+
+
+
 function toggleModal() {
   const modal = document.getElementById('modal');
   modal.classList.toggle('hidden');
 
   loadingProductsShoppingCard();
+  calculateTotalShoppingCard();
 }
 
 function toggleModalMenu() {
@@ -290,6 +351,9 @@ async function animationShoesHome() {
 
 window.addEventListener("resize", toggleMenuOnResize);
 window.addEventListener("load", () => {
+
+  //renderizamos la tasa
+  document.getElementById('tasa').textContent = `${tasaBcv} Bs`;
   animationShoesHome()
   toggleMenuOnResize()
 });

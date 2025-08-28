@@ -60,21 +60,43 @@
 
             <!-- //*Modal debajo del botón -->
             <div id="modal" class="absolute top-1/2 left-1/2 w-80 transform -translate-x-1/2 translate-y-10
-         bg-white border border-gray-300 rounded shadow-lg p-4 hidden z-10 h-100 
-         overflow-y-auto flex flex-col ">
+            bg-white border border-gray-300 rounded shadow-lg px-4 pt-4 hidden z-10 h-100 
+            overflow-y-auto flex flex-col ">
 
-              <h2 class="text-lg font-bold mb-2">Productos en el carrito</h2>
+              <h2 class="text-lg font-bold mb-3">Productos en el carrito</h2>
 
               <!-- Productos del carrito -->
               <div id="modal-content-products" class="flex flex-col gap-5 mb-10 flex-1"></div>
 
               <!-- Botones de cerrar y comprar -->
-              <div class="flex justify-evenly gap-3 sticky bottom-0 w-full bg-white py-2">
-                <button onclick="toggleModal()" class="btn-general w-30"
-                  style="background-color: var(--secondary-color); color:var(--white-color);">
-                  Cerrar
-                </button>
-                <button class="btn-general w-full">Comprar</button>
+              <div class="flex flex-col gap-3 sticky bottom-0 w-full bg-white py-4">
+                <!-- Total de la compra -->
+                <div class="flex flex-col ">
+
+                  <div class="flex justify-between">
+                    <p class="txt-black text-xs">Tasa:</p>
+                    <p id="tasa" class="txt-black font-medium text-xs">0</p>
+                  </div>
+
+                  <div class="flex justify-between">
+                    <p class="txt-black text-xs">Total:</p>
+                    <p id="total-dollar" class="txt-black font-medium text-xs">0 $</p>
+                  </div>
+
+                  <div class="flex justify-between">
+                    <p class="txt-black text-xs">TotalBs:</p>
+                    <p id="total-bs" class="txt-black font-medium text-xs">0 bs</p>
+                  </div>
+
+                </div>
+
+                <div class="flex justify-evenly gap-2">
+                  <button onclick="toggleModal()" class="btn-general w-30"
+                    style="background-color: var(--secondary-color); color:var(--white-color);">
+                    Cerrar
+                  </button>
+                  <button class="btn-general w-full">Comprar</button>
+                </div>
               </div>
             </div>
           </div>
@@ -292,6 +314,7 @@
       </div>
     </div>
   </footer>
+
   <script src="./assets/js/scrollreveal.js"></script>
   <script src="https://kit.fontawesome.com/da29abc60a.js" crossorigin="anonymous"></script>
   <script src="./assets/js/main.js"></script>
